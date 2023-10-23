@@ -55,9 +55,10 @@ if page == "Relative Returns":
             patch.set_facecolor('green')
 
     plt.title(f'Total Return After {years} Years')
-    plt.xlabel('Return (%)')
+    plt.xlabel('')
     plt.ylabel('Proportion')
-    plt.gca().yaxis.set_major_formatter(plt.FuncFormatter('{0:.2%}'.format))  # Format y-axis as percentages
+    plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: '{:.0%}'.format(x)))
+    plt.gca().yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: '{:.0%}'.format(x)))
     st.pyplot(plt)
 
 elif page == "Portfolio Value":
